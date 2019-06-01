@@ -110,8 +110,8 @@
         </button>
       </div>
     </div>
-    <div class="cn-row">
-      <div :class="house_rent_status === -1 ? 'hidden' : ''" class="col-md-6 px-0">
+    <div :class="house_rent_status === -1 ? 'hidden' : ''" class="cn-row">
+      <div class="col-md-6 px-0">
         <div class="carousel slide" data-ride="carousel" id="carousel">
           <div class="carousel-inner">
             <template v-for="(one_image, index) in house_image">
@@ -151,8 +151,7 @@
           </a>
         </div>
       </div>
-
-      <div :class="house_rent_status === -1 ? 'hidden' : ''" class="col-md-3 bg-light b">
+      <div class="col-md-3 bg-light b">
         <div class="row">
           <div class="col-md-12 border-bottom mt-0">
             <h2 class="pt-2" contenteditable="true">详细信息</h2>
@@ -204,10 +203,7 @@
     </div>
     <div class="container">
 
-      <div class="row">
-        <div id="painted-eggshell" :class="house_rent_status === -1 ? '' : 'hidden'">
-          恭喜你喜提彩蛋~ b(￣▽￣)d<br>您似乎是直接链接进入本页面的，请先登录哟
-        </div>
+      <div id="eggshell" class="row">
         <div class="container h-50">
           <div class="row">
             <div class="col-md-12 col-lg-12 mt-1">
@@ -432,6 +428,11 @@
             });
           });
           $('#userCenter').removeAttr('hidden');
+        } else {
+          $('#eggshell').prepend(`
+            <div id="painted-eggshell">
+              恭喜你喜提彩蛋~ b(￣▽￣)d<br>您似乎是直接链接进入本页面的，请先登录哟
+            </div>`);
         }
       })
       .catch(function (error) {
